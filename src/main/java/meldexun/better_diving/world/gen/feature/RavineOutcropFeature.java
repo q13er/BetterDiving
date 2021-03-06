@@ -39,6 +39,9 @@ public class RavineOutcropFeature extends Feature<FeatureSpreadConfig> {
 				int x = rand.nextInt(8) - rand.nextInt(8);
 				int z = rand.nextInt(8) - rand.nextInt(8);
 				int y = 1 + rand.nextInt(generator.getHeight(pos.getX() + x, pos.getZ() + z, Type.OCEAN_FLOOR) - 1);
+				if (y >= 0) {
+					y = 1;
+				}
 				BlockPos p = new BlockPos(pos.getX() + x, y, pos.getZ() + z);
 				if (!reader.getBlockState(p).isIn(Blocks.WATER)) {
 					continue;
